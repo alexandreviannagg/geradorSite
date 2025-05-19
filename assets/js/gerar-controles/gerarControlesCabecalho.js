@@ -23,7 +23,7 @@ containerControles.addEventListener("click", function(event) {
     }
 
     if (event.target && event.target.id === "gerar-controles-form-cabecalho") {
-        gerarControlesFormCabecalho();
+        gerarControlesCampoFormCabecalho()
     }
     
 });
@@ -309,8 +309,8 @@ function gerarControlesFormCabecalho() {
                                 
             </form>
 
-            <button>Salvar</button>
-            <button>Excluir</button>
+            <button id="btn-salvar-campo">Salvar</button>
+            <button id="btn-remover-campo">Excluir</button>
     `;
 
     configurarFormularioCabecalho();
@@ -328,33 +328,94 @@ function gerarCabecalho() {
 }
 
 
+function gerarControlesCampoFormCabecalho() {
+    containerControles.innerHTML = `
+        <div id="gerar-controles-cabecalho">
+            <button class="botoes-gerar-controles2" id="gerar-controles-gerais-cabecalho">Controles gerais</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-logo-cabecalho">Controles da logo</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-texto-cabecalho">Controles do texto</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-form-cabecalho">Controles formulário</button>
+        </div>
+
+        <form action="k.php" id="form-campo">
+                    <fieldset>
+                        <legend>
+                            Gerar campo
+                        </legend>
+
+                        <div class="campo-editor">
+                            <label for="input-selecionar-tipo-campoCabecalho" class="label-style-main">Selecione um campo</label>
+                            <select name="sselect" id="input-selecionar-tipo-campoCabecalho" class="input-style-main">
+                                <option value="op">SELECIONAR</option>
+                                <option value="text">Text</option>
+                                <option value="email">Email</option>
+                                <option value="password">Senha</option>
+                                <option value="tel">Telefone</option>
+                                <option value="submit">Botão</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-editor">
+                            <label for="input-titulo-label-campoCabelho" class="label-style-main">Informe o titulo do campo</label>
+                            <input type="text" name="title" id="input-titulo-label-campoCabelho" class="input-style-main" placeholder="Informe aqui..">
+                        </div>
+
+
+
+                        <div class="campo-editor">
+                            <label for="input-tamanho-fonte-labelCabelho" class="label-style-main">Tamanho da fonte do label (em px)</label>
+                            <input type="number" name="fonte" id="input-tamanho-fonte-labelCabelho" class="input-style-main" placeholder="16" min="16" max="30">
+                        </div>
 
 
 
 
-function gerarMenu() {
-    containerControles.innerHTML = '';
 
-    containerControles.innerHTML = '<h3>Editor do Menu</h3>'
-}
+                        <div class="campo-editor">
+                            <label for="input-cor-titulo-label-campoCabelho" class="label-style-main">Selecione a cor do titulo do campo</label>
+                            <input type="color" name="cor" id="input-cor-titulo-label-campoCabelho" class="input-style-main" value="#FFFFFF">
+                        </div>
 
+                        <div class="campo-editor">
+                            <label for="input-placeholder-label-campoCabecalho" class="label-style-main">Informe o placeholder do campo</label>
+                            <input type="text" name="placeholder" id="input-placeholder-label-campoCabecalho" class="input-style-main" placeholder="Informe o placeholder...">
+                        </div>
 
-function gerarGaleria() {
-    containerControles.innerHTML = '';
-
-    containerControles.innerHTML = '<h3>Editor da Galeria</h3>'
-}
-
-
-function gerarFormulario() {
-    containerControles.innerHTML = '';
-
-    containerControles.innerHTML = '<h3>Editor do Formulário</h3>'
-}
+                        <div class="campo-editor">
+                            <label for="input-tamanho-fonte-placeholderCabecalho" class="label-style-main">Tamanho da fonte do placeholder (em px)</label>
+                            <input type="number" name="fonte-place" id="input-tamanho-fonte-placeholderCabecalho" class="input-style-main" placeholder="12" min="12" max="18">
+                        </div>
 
 
-function gerarRodape() {
-    containerControles.innerHTML = '';
+                        <div class="campo-editor">
+                            <label for="input-cor-borda-campoCabecalho" class="label-style-main">Cor da borda do campo</label>
+                            <input type="color" name="corborda" id="input-cor-borda-campoCabecalho" class="input-style-main" value="#cc84ff">
+                        </div>
 
-    containerControles.innerHTML = '<h3>Editor do Rodape</h3>'
+                        <div class="campo-editor">
+                            <label for="input-espessura-borda-campoCabecalho" class="label-style-main">Espessura da borda (em px)</label>
+                            <input type="number" name="Espessura" id="input-espessura-borda-campoCabecalho" class="input-style-main" placeholder="1" min="1" max="4">
+                        </div>
+
+                        <div class="campo-editor">
+                            <label for="input-estilo-borda-campoCabecalho" class="label-style-main">Estilo da borda</label>
+                            <select id="input-estilo-borda-campoCabecalho" class="input-style-main">
+                                <option value="solid">Sólida</option>
+                                <option value="dashed">Tracejada</option>
+                                <option value="dotted">Pontilhada</option>
+                                <option value="double">Dupla</option>
+                            </select>
+                        </div>
+
+                        
+                    </fieldset>
+                </form>
+
+                 <div>
+                    <button id="btn-salvar-form-cabecalho">Salvar</button> 
+                    <button id="btn-excluir-form-cabecalho">Excluir</button> 
+                </div> 
+    `;
+
+    configurarCamposFormCabecalho();
 }

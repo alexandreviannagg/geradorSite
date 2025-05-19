@@ -212,114 +212,179 @@ function configurarTextoCabecalho() {
 }
 
 
+function configurarCamposFormCabecalho() {
+    const camposCriados = [];
+    const containerCampos = document.getElementById("form-cabecalho");
 
-function configurarFormularioCabecalho() {
-    const containerFormCabecalho = document.getElementById("form-cabecalho");
-    const tituloCampo = document.getElementById("label-input-form");
-    const campoTipo = document.getElementById("adicionar-form-cabecalho");
-    const inputPlaceholder = document.getElementById("placeholder-input-form");
-    const espacamento = document.getElementById("espacamento-interno-form-cabecalho--editor");
-    const inputCorLabel = document.getElementById("cor-label-input-form");
-    const inputCorPlaceholder = document.getElementById("cor-placeholder-input-form");
-    const inputTamanhoFonteLabel = document.getElementById("tamanho-fonte-label-input-form");
-    const inputTamanhoFontePlaceholder = document.getElementById("tamanho-fonte-placeholder-input-form");
-    const inputCorFundo = document.getElementById("cor-fundo-input-form");
-    const inputCorBorda = document.getElementById("input-cor-borda-form-cabecalho");
-    const inputEspessuraBorda = document.getElementById("input-espessura-borda-form-cabecalho");
-    const inputEstiloBorda = document.getElementById("input-estilo-borda-form-cabecalho");
+    const tipoCampo = document.getElementById("input-selecionar-tipo-campoCabecalho");
+    const tituloCampo = document.getElementById("input-titulo-label-campoCabelho");
+    const tamanhoFonteLabel = document.getElementById("input-tamanho-fonte-labelCabelho");
+    const corTitulo = document.getElementById("input-cor-titulo-label-campoCabelho");
+    const placeholder = document.getElementById("input-placeholder-label-campoCabecalho");
+    const tamanhoFontePlaceholder = document.getElementById("input-tamanho-fonte-placeholderCabecalho");
+    const corBorda = document.getElementById("input-cor-borda-campoCabecalho");
+    const espessuraBorda = document.getElementById("input-espessura-borda-campoCabecalho");
+    const estiloBorda = document.getElementById("input-estilo-borda-campoCabecalho");
 
-    // Cria a div do campo
-    let campoDiv = document.createElement('div');
-    campoDiv.classList.add('campo-editor');
-    
-    // Cria o label
-    let criarLabel = document.createElement("label");
-    criarLabel.classList.add("label-style-main");
-    campoDiv.appendChild(criarLabel);
+    const btnSalvar = document.getElementById("btn-salvar-form-cabecalho");
+    const btnExcluir = document.getElementById("btn-excluir-form-cabecalho");
 
-    // Adiciona a div no container
-    containerFormCabecalho.appendChild(campoDiv);
+    let previewWrapper = null;
+    let previewLabel = null;
+    let previewCampo = null;
 
-    // Variável para armazenar o campo criado
-    let criarCampo = null;
-
-    // Atualiza o conteúdo do label em tempo real
-    tituloCampo.addEventListener("input", () => {
-        criarLabel.textContent = tituloCampo.value;
-    });
-
-    // Atualiza o tipo do campo
-    campoTipo.addEventListener("change", () => {
-        if (criarCampo && criarCampo.parentNode) {
-            criarCampo.remove();
-        }
-
-        if (campoTipo.value === "submit") {
-            criarCampo = document.createElement("button");
-            criarCampo.type = "submit";
-            criarCampo.textContent = "Enviar";
-        } else if (campoTipo.value !== "op") {
-            criarCampo = document.createElement("input");
-            criarCampo.type = campoTipo.value;
-            criarCampo.classList.add("input-style-main");
-
-            // Atribui um ID único para o campo (necessário para aplicar estilo no placeholder)
-            criarCampo.id = "input-gerado-cabecalho";
-        } else {
-            criarCampo = null;
-            return;
-        }
-
-        campoDiv.appendChild(criarCampo);
-        aplicarEstilos();
-    });
-
-    // Adiciona evento de input para cada campo de estilo
-    const todosInputsEstilo = [
-        tituloCampo, inputTamanhoFonteLabel, inputCorLabel,
-        inputPlaceholder, inputCorPlaceholder, inputTamanhoFontePlaceholder,
-        espacamento, inputCorFundo, inputCorBorda, inputEspessuraBorda,
-        inputEstiloBorda
+    const inputsDeEstilo = [
+        { el: tituloCampo, evento: "input" },
+        { el: tamanhoFonteLabel, evento: "input" },
+        { el: corTitulo, evento: "input" },
+        { el: placeholder, evento: "input" },
+        { el: tamanhoFontePlaceholder, evento: "input" },
+        { el: corBorda, evento: "input" },
+        { el: espessuraBorda, evento: "input" },
+        { el: estiloBorda, evento: "change" },
     ];
 
-    todosInputsEstilo.forEach(input => {
-        input.addEventListener("input", aplicarEstilos);
+    function criarCampo() {
+        const tipo = tipoCampo.value;
+        const labelText = tituloCampo.value;
+        const fontSizeLabel = tamanhoFonteLabel.value || "16";
+        const colorLabel = corTitulo.value || "#000000";
+        const placeholderText = placeholder.value;
+        const fontSizePlaceholder = tamanhoFontePlaceholder.value || "14";
+        const borderColor = corBorda.value || "#000000";
+        const borderWidth = espessuraBorda.value || 1;
+        const borderStyle = estiloBorda.value || "solid";
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "campo-gerado";
+
+        const label = document.createElement("label");
+        label.textContent = labelText;
+        label.classList.add("label-style-main");
+        label.style.color = colorLabel;
+        label.style.fontSize = `${fontSizeLabel}px`;
+
+        let campo;
+
+       if (tipo === "submit") {
+            campo = document.createElement("button");
+            campo.type = "submit";
+            campo.textContent = labelText || "Enviar";
+        } else {
+            campo = document.createElement("input");
+            campo.type = tipo;
+        }
+
+        if (campo.tagName !== "BUTTON") {
+            campo.placeholder = placeholderText;
+            campo.style.fontSize = `${fontSizePlaceholder}px`;
+        }
+
+        campo.classList.add("input-style-main");
+        campo.style.border = `${borderWidth}px ${borderStyle} ${borderColor}`;
+        campo.style.marginTop = "5px";
+        campo.style.display = "block";
+        campo.style.padding = "5px";
+
+        wrapper.appendChild(label);
+        wrapper.appendChild(campo);
+
+        return wrapper;
+    }
+
+    function atualizarPreview() {
+        if (!previewWrapper) return;
+
+        if (previewLabel) {
+            previewLabel.textContent = tituloCampo.value;
+            previewLabel.style.fontSize = (tamanhoFonteLabel.value || "16") + "px";
+            previewLabel.style.color = corTitulo.value || "#000";
+        }
+
+        if (previewCampo.tagName !== "BUTTON") {
+            previewCampo.placeholder = placeholder.value;
+            previewCampo.style.fontSize = (tamanhoFontePlaceholder.value || "14") + "px";
+        } else {
+            previewCampo.textContent = tituloCampo.value || "Enviar";
+        }
+
+        previewCampo.style.border = `${espessuraBorda.value || 1}px ${estiloBorda.value || "solid"} ${corBorda.value || "#000"}`;
+    }
+
+    tipoCampo.addEventListener("change", () => {
+        if (previewWrapper) {
+            previewWrapper.remove();
+        }
+
+        previewWrapper = document.createElement("div");
+        previewWrapper.classList.add("campo-editor");
+
+        previewLabel = document.createElement("label");
+        previewLabel.classList.add("label-style-main");
+
+        const tipo = tipoCampo.value;
+        if (tipo === "textarea") {
+            previewCampo = document.createElement("textarea");
+        } else if (tipo === "select") {
+            previewCampo = document.createElement("select");
+            const option = document.createElement("option");
+            option.textContent = "Opção 1";
+            previewCampo.appendChild(option);
+        } else if (tipo === "submit") {
+            previewCampo = document.createElement("button");
+            previewCampo.type = "submit";
+            previewCampo.textContent = tituloCampo.value || "Enviar";
+        } else {
+            previewCampo = document.createElement("input");
+            previewCampo.type = tipo;
+        }
+
+        previewCampo.classList.add("input-style-main");
+        previewCampo.style.marginTop = "5px";
+        previewCampo.style.display = "block";
+        previewCampo.style.padding = "5px";
+
+        if (tipo !== "submit") {
+            previewWrapper.appendChild(previewLabel);
+        }
+        previewWrapper.appendChild(previewCampo);
+
+        containerCampos.appendChild(previewWrapper);
+
+        atualizarPreview();
     });
 
-    // Função que aplica os estilos em tempo real
-    function aplicarEstilos() {
-        criarLabel.textContent = tituloCampo.value;
-        criarLabel.style.fontSize = inputTamanhoFonteLabel.value + 'px';
-        criarLabel.style.color = inputCorLabel.value;
+    inputsDeEstilo.forEach(({ el, evento }) => {
+        el.addEventListener(evento, atualizarPreview);
+    });
 
-        if (!criarCampo) return;
+    btnSalvar.onclick = function () {
+        if (!previewWrapper) return alert("Selecione um tipo de campo primeiro!");
 
-        if (criarCampo.tagName.toLowerCase() === 'input') {
-            criarCampo.placeholder = inputPlaceholder.value;
-            criarCampo.style.fontSize = inputTamanhoFontePlaceholder.value + 'px';
+        const novoCampo = criarCampo();
+        containerCampos.appendChild(novoCampo);
+        camposCriados.push(novoCampo);
+
+        previewWrapper.remove();
+        previewWrapper = null;
+        previewLabel = null;
+        previewCampo = null;
+
+        tipoCampo.value = "op";
+        tituloCampo.value = "";
+        tamanhoFonteLabel.value = "";
+        corTitulo.value = "#FFFFFF";
+        placeholder.value = "";
+        tamanhoFontePlaceholder.value = "";
+        corBorda.value = "#cc84ff";
+        espessuraBorda.value = "";
+        estiloBorda.value = "solid";
+    };
+
+    btnExcluir.onclick = function () {
+        if (camposCriados.length > 0) {
+            const ultimoCampo = camposCriados.pop();
+            ultimoCampo.remove();
         }
-
-        criarCampo.style.padding = espacamento.value + "px";
-        criarCampo.style.backgroundColor = inputCorFundo.value;
-        criarCampo.style.borderColor = inputCorBorda.value;
-        criarCampo.style.borderWidth = inputEspessuraBorda.value + "px";
-        criarCampo.style.borderStyle = inputEstiloBorda.value;
-
-        // === COR DO PLACEHOLDER ===
-
-        // Aplica estilo ao placeholder via tag <style> com seletor específico
-        let styleTag = document.getElementById("placeholder-style");
-        if (!styleTag) {
-            styleTag = document.createElement("style");
-            styleTag.id = "placeholder-style";
-            document.head.appendChild(styleTag);
-        }
-
-        styleTag.innerHTML = `
-            #input-gerado-cabecalho::placeholder {
-                color: ${inputCorPlaceholder.value};
-                font-size: ${inputTamanhoFontePlaceholder.value}px;
-            }
-        `;
-    }
+    };
 }
