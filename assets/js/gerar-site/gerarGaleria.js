@@ -12,6 +12,7 @@ function configurarGaleria() {
         galeria.style.justifyContent = "flex-start";
         galeria.style.maxWidth = "660px";      
         galeria.style.margin = "20px auto";    
+        galeria.style.backgroundColor = "#ffffff"
         document.querySelector("#container-site--gerado").appendChild(galeria);
     }
 
@@ -47,6 +48,7 @@ function configurarGaleria() {
     const inputTitulo = document.getElementById("cardTitulo");
     const inputDescricao = document.getElementById("cardDescricao");
     const inputImagem = document.getElementById("cardImagem");
+    const inputCorFundoGaleria = document.getElementById("galeriaBgCor");
     const inputCorFundo = document.getElementById("cardBgCor");
     const inputCorTitulo = document.getElementById("cardTituloCor");
     const inputCorDescricao = document.getElementById("cardDescricaoCor");
@@ -77,6 +79,10 @@ function configurarGaleria() {
             };
             reader.readAsDataURL(file);
         }
+    });
+
+    inputCorFundoGaleria.addEventListener("input", () => {
+        galeria.style.backgroundColor = inputCorFundoGaleria.value;
     });
 
     inputCorFundo.addEventListener("input", () => {

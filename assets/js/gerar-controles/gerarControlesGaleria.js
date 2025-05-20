@@ -19,12 +19,19 @@ function gerarControlesGaleria() {
                         <label for="cardImagem" class="label-style-main">Imagem:</label>
                         <input type="file" accept="image/*" id="cardImagem" class="input-style-main">
                     </div>
+
                     <div class="campo-editor">
-                        <label for="cardBgCor">Cor de Fundo:</label>
+                        <label for="galeriaBgCor" class="label-style-main">Cor de Fundo da galeria:</label>
+                        <input type="color" id="galeriaBgCor" class="input-style-main" value="#ffffff">
+                    </div>
+
+                    <div class="campo-editor">
+                        <label for="cardBgCor" class="label-style-main">Cor de Fundo:</label>
                         <input type="color" id="cardBgCor" class="input-style-main" value="#ffffff">
                     </div>
+
                     <div class="campo-editor">
-                        <label for="cardTituloCor">Cor do Titulo do card:</label>
+                        <label for="cardTituloCor" class="label-style-main">Cor do Titulo do card:</label>
                         <input type="color" id="cardTituloCor" class="input-style-main" value="#000000">
                     </div>
                     <div class="campo-editor">
