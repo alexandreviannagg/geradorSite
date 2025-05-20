@@ -41,11 +41,6 @@ function gerarControlesRodape() {
                 </select>
             </div>
         </form>
-
-        <div style="margin-top: 10px;">
-            <button type="button" id="btn-salvar-rodape" class="btn">Aplicar</button>
-            <button type="button" id="btn-remover-rodape" class="btn">Remover rodapé</button>
-        </div>
     `;
 
     configurarRodape();

@@ -1,7 +1,10 @@
-* {
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-image: url(/bg.jpeg);
+    background-position: center;
+    background-size: cover;
 }
 
 #container-geral {
@@ -16,28 +19,52 @@
     padding: 10px;
 }
 
-#cabecalho, #menu {
+#cabecalho {
     display: flex;
-    width: 100%;
+    max-width: 100%;
+    align-items: center;
     padding: 10px;
 }
 
+#form-cabecalho {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
 #menu {
+    padding: 10px;
+    gap: 10px;
     flex-direction: column;
 }
 
+
+.botoes-site-geral {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 #container-site--gerado {
     display: flex;
     flex-direction: column;
+    min-width: 800px;
+    background-color: #210276c0 ;
+}
+
+#container-controles {
+    background-color: #210276c0;
+    width: 800px;
 }
 
 
 #galeria {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* espaço entre os cards */
-    justify-content: flex-start; /* ou space-between, se quiser espaçar */
+    gap: 10px; 
+    justify-content: flex-start; 
 }
 
 #gerar-controle {
@@ -59,12 +86,10 @@ fieldset {
 
 
 .input-style-main::placeholder {
-    color: var(--placeholder-color, #868686); /* cor padrão se não for definida */
+    color: var(--placeholder-color, #868686); 
 }
 
 
-.input-style-main {
-    width:60%;
-}
+
 
 

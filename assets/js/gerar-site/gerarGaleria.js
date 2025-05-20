@@ -6,12 +6,12 @@ function configurarGaleria() {
     if (!galeria) {
         galeria = document.createElement("div");
         galeria.id = "galeria";
-        galeria.style.display = "flex";        // deixa flexível
-        galeria.style.flexWrap = "wrap";       // permite quebrar linha
-        galeria.style.gap = "10px";             // espaço entre cards
-        galeria.style.justifyContent = "flex-start"; // cards alinhados à esquerda
-        galeria.style.maxWidth = "660px";      // largura máxima, para caber 3 cards (3 x 200 + gaps)
-        galeria.style.margin = "20px auto";    // centraliza o container
+        galeria.style.display = "flex";        
+        galeria.style.flexWrap = "wrap";       
+        galeria.style.gap = "10px";             
+        galeria.style.justifyContent = "flex-start";
+        galeria.style.maxWidth = "660px";      
+        galeria.style.margin = "20px auto";    
         document.querySelector("#container-site--gerado").appendChild(galeria);
     }
 
@@ -40,12 +40,10 @@ function configurarGaleria() {
 
     cardAtual = card;
 
-    // Elementos do card
     const img = card.querySelector(".imagem-card");
     const titulo = card.querySelector(".titulo-card");
     const descricao = card.querySelector(".descricao-card");
 
-    // Inputs
     const inputTitulo = document.getElementById("cardTitulo");
     const inputDescricao = document.getElementById("cardDescricao");
     const inputImagem = document.getElementById("cardImagem");
@@ -57,11 +55,10 @@ function configurarGaleria() {
     const inputEstiloBorda = document.getElementById("estilo-borda-form");
     const selectTamanho = document.getElementById("tamanho-card-galeria");
 
-    // Botões já existentes no DOM
     const btnSalvar = document.getElementById("btn-salvar-card");
     const btnExcluir = document.getElementById("btn-excluir-card");
 
-    // Eventos de edição em tempo real
+
     inputTitulo.addEventListener("input", () => {
         titulo.textContent = inputTitulo.value;
     });
@@ -115,14 +112,13 @@ function configurarGaleria() {
         }
     });
 
-    // Botão salvar — salva o card atual no vetor e adiciona na galeria
+   
     btnSalvar.addEventListener("click", () => {
         const novo = card.cloneNode(true);
         novo.classList.add("card-galeria");
         cardsGaleriaSalvos.push(novo);
         galeria.appendChild(novo);
 
-        // Resetar campos para novo card
         inputTitulo.value = "Título do card";
         inputDescricao.value = "Descrição do card";
         inputImagem.value = "";
@@ -142,7 +138,7 @@ function configurarGaleria() {
         card.style.width = "200px";
     });
 
-    // Botão excluir — remove o card atual ou o último salvo
+    
     btnExcluir.addEventListener("click", () => {
         if (cardAtual && galeria.contains(cardAtual)) {
             cardAtual.remove();

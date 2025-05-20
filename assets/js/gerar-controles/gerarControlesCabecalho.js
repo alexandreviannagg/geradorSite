@@ -32,7 +32,7 @@ containerControles.addEventListener("click", function(event) {
 // FUNCTIONS
 function gerarControlesGeraisCabecalho() {
     containerControles.innerHTML = `
-        <div id="gerar-controles-cabecalho">
+        <div id="gerar-controles-cabecalho" class="container-controles">
             <button class="botoes-gerar-controles2" id="gerar-controles-gerais-cabecalho">Controles gerais</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-logo-cabecalho">Controles da logo</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-texto-cabecalho">Controles do texto</button>
@@ -52,7 +52,7 @@ function gerarControlesGeraisCabecalho() {
 
                 <div class="campo-editor">
                     <label for="cor-fundo-cabecalho--editor" class="label-style-main">Selecione a cor de fundo</label>
-                    <input type="color" name="cor-fundo-cabecalho" class="input-style-main" id="cor-fundo-cabecalho--editor">
+                    <input type="color" name="cor-fundo-cabecalho" class="input-style-main" id="cor-fundo-cabecalho--editor" value="#ffffff">
                 </div>
 
                 <div class="campo-editor">
@@ -101,7 +101,7 @@ function gerarControlesLogoCabecalho() {
 
     containerControles.innerHTML = `
 
-        <div id="gerar-controles-cabecalho">
+        <div id="gerar-controles-cabecalho" class="container-controles">
             <button class="botoes-gerar-controles2" id="gerar-controles-gerais-cabecalho">Controles gerais</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-logo-cabecalho">Controles da logo</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-texto-cabecalho">Controles do texto</button>
@@ -164,7 +164,7 @@ function gerarControlesLogoCabecalho() {
 function gerarControlesTextoCabecalho() {
     containerControles.innerHTML = `
 
-        <div id="gerar-controles-cabecalho">
+        <div id="gerar-controles-cabecalho" class="container-controles">
             <button class="botoes-gerar-controles2" id="gerar-controles-gerais-cabecalho">Controles gerais</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-logo-cabecalho">Controles da logo</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-texto-cabecalho">Controles do texto</button>
@@ -219,105 +219,10 @@ function gerarControlesTextoCabecalho() {
     configurarTextoCabecalho();
 }
 
-function gerarControlesFormCabecalho() {
-    containerControles.innerHTML = `
 
-        <div id="gerar-controles-cabecalho">
-            <button class="botoes-gerar-controles2" id="gerar-controles-gerais-cabecalho">Controles gerais</button>
-            <button class="botoes-gerar-controles2" id="gerar-controles-logo-cabecalho">Controles da logo</button>
-            <button class="botoes-gerar-controles2" id="gerar-controles-texto-cabecalho">Controles do texto</button>
-            <button class="botoes-gerar-controles2" id="gerar-controles-form-cabecalho">Controles formulário</button>
-            <div id="container-controles--editor"></div>
-        </div>
-
-        <form action="">
-                <fieldset>
-                    <legend>Formulário</legend>
-                
-
-                    <div class="campo-editor">
-                        <label for="adicionar-form-cabecalho" class="label-style-main">Selecione um campo</label>
-                        <select name="select-form-cabecalho" id="adicionar-form-cabecalho" class="input-style-main">
-                            <option value="op">-- SELECIONAR --</option>
-                            <option value="text">Text</option>
-                            <option value="email">Email</option>
-                            <option value="tel">Telefone</option>
-                            <option value="submit">Botão</option>
-                        </select>
-                    </div>
-
-                    <div class="campo-editor">
-                        <label for="label-input-form" class="label-style-main">Titulo do campo</label>
-                        <input type="text" name="label-form" id="label-input-form" class="input-style-main" placeholder="Digite o titulo do campo">
-                    </div>
-                    
-                    <div class="campo-editor">
-                        <label for="tamanho-fonte-label-input-form" class="label-style-main">Tamanho da fonte do label (px)</label>
-                        <input type="number" name="tamanho-fonte-label-form" id="tamanho-fonte-label-input-form" class="input-style-main" placeholder="Ex: 14" min="8" max="48">
-                    </div>
-
-                     <div class="campo-editor">
-                        <label for="cor-label-input-form" class="label-style-main">Cor do label do campo</label>
-                        <input type="color" name="cor-label-form" id="cor-label-input-form" class="input-style-main">
-                    </div>
-
-                    <div class="campo-editor">
-                        <label for="placeholder-input-form" class="label-style-main">Texto do placeholder</label>
-                        <input type="text" name="placeholder-form" id="placeholder-input-form" class="input-style-main" placeholder="Digite o texto do placeholder">
-                    </div>
-
-                    <div class="campo-editor">
-                        <label for="espacamento-interno-form-cabecalho--editor" class="label-style-main">Informe o espaçamento do campo</label>
-                            <input type="number" name="espacamento-interno-cabecalho" class="input-style-main" max="8" min="2" value="2" id="espacamento-interno-form-cabecalho--editor">
-                        </div>
-                
-                    <div class="campo-editor">
-                        <label for="tamanho-fonte-placeholder-input-form" class="label-style-main">Tamanho da fonte do placeholder (px)</label>
-                        <input type="number" name="tamanho-fonte-placeholder-form" id="tamanho-fonte-placeholder-input-form" class="input-style-main" placeholder="Ex: 14" min="8" max="48">
-                    </div>
-
-                    <div class="campo-editor">
-                        <label for="cor-placeholder-input-form" class="label-style-main">Cor do placeholder</label>
-                        <input type="color" name="cor-placeholder-form" id="cor-placeholder-input-form" class="input-style-main">
-                    </div>
-                
-                    <div class="campo-editor">
-                        <label for="cor-fundo-input-form" class="label-style-main">Cor de fundo do campo</label>
-                        <input type="color" name="cor-fundo-input-form" id="cor-fundo-input-form" class="input-style-main" value="#ffffff">
-                    </div>
-                
-                    <div class="campo-editor">
-                        <label for="input-cor-borda-form-cabecalho" class="label-style-main">Cor da borda do campo</label>
-                        <input type="color" name="corborda-form" id="input-cor-borda-form-cabecalho" class="input-style-main">
-                    </div>
-                
-                    <div class="campo-editor">
-                        <label for="input-espessura-borda-form-cabecalho" class="label-style-main">Espessura da borda (em px)</label>
-                        <input type="number" name="espessura-borda-form" id="input-espessura-borda-form-cabecalho" class="input-style-main" placeholder="1" min="1" max="8">
-                    </div>
-                
-                    <div class="campo-editor">
-                        <label for="input-estilo-borda-form-cabecalho" class="label-style-main">Estilo da borda</label>
-                        <select id="input-estilo-borda-form-cabecalho" class="input-style-main">
-                            <option value="solid">Sólida</option>
-                            <option value="dashed">Tracejada</option>
-                            <option value="dotted">Pontilhada</option>
-                            <option value="double">Dupla</option>
-                        </select>
-                    </div>
-                </fieldset>
-                                
-            </form>
-
-            <button id="btn-salvar-campo">Salvar</button>
-            <button id="btn-remover-campo">Excluir</button>
-    `;
-
-    configurarFormularioCabecalho();
-}
 function gerarCabecalho() {
     containerControles.innerHTML = `
-        <div id="gerar-controles-cabecalho">
+        <div id="gerar-controles-cabecalho" class="container-controles">
             <button class="botoes-gerar-controles2" id="gerar-controles-gerais-cabecalho">Controles gerais</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-logo-cabecalho">Controles da logo</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-texto-cabecalho">Controles do texto</button>
@@ -330,13 +235,14 @@ function gerarCabecalho() {
 
 function gerarControlesCampoFormCabecalho() {
     containerControles.innerHTML = `
-        <div id="gerar-controles-cabecalho">
+        <div id="gerar-controles-cabecalho" class="container-controles">
             <button class="botoes-gerar-controles2" id="gerar-controles-gerais-cabecalho">Controles gerais</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-logo-cabecalho">Controles da logo</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-texto-cabecalho">Controles do texto</button>
             <button class="botoes-gerar-controles2" id="gerar-controles-form-cabecalho">Controles formulário</button>
         </div>
 
+        <h3 class="titulo-editor">Editor de cabeçalho</h3
         <form action="k.php" id="form-campo">
                     <fieldset>
                         <legend>
@@ -373,7 +279,7 @@ function gerarControlesCampoFormCabecalho() {
 
                         <div class="campo-editor">
                             <label for="input-cor-titulo-label-campoCabelho" class="label-style-main">Selecione a cor do titulo do campo</label>
-                            <input type="color" name="cor" id="input-cor-titulo-label-campoCabelho" class="input-style-main" value="#FFFFFF">
+                            <input type="color" name="cor" id="input-cor-titulo-label-campoCabelho" class="input-style-main" value="#000000">
                         </div>
 
                         <div class="campo-editor">
@@ -389,7 +295,7 @@ function gerarControlesCampoFormCabecalho() {
 
                         <div class="campo-editor">
                             <label for="input-cor-borda-campoCabecalho" class="label-style-main">Cor da borda do campo</label>
-                            <input type="color" name="corborda" id="input-cor-borda-campoCabecalho" class="input-style-main" value="#cc84ff">
+                            <input type="color" name="corborda" id="input-cor-borda-campoCabecalho" class="input-style-main" value="#000000">
                         </div>
 
                         <div class="campo-editor">
@@ -411,9 +317,9 @@ function gerarControlesCampoFormCabecalho() {
                     </fieldset>
                 </form>
 
-                 <div>
-                    <button id="btn-salvar-form-cabecalho">Salvar</button> 
-                    <button id="btn-excluir-form-cabecalho">Excluir</button> 
+                 <div class="divBotoesSlvExc">
+                    <button id="btn-salvar-form-cabecalho"  class="btn-salvar--excluir--controles">Salvar</button> 
+                    <button id="btn-excluir-form-cabecalho" class="btn-salvar--excluir--controles">Excluir</button> 
                 </div> 
     `;
 

@@ -17,9 +17,9 @@ containerControles.addEventListener("click", function(event) {
 
 function gerarControlesForm() {
     containerControles.innerHTML = `
-        <div id="gerar-controles-form">
-            <button class="botoes-gerar-controles2" id="gerar-controles-titulo-form">Gerar titulo e cor do fundo</button>
-            <button class="botoes-gerar-controles2" id="gerar-controles-campo-form">Gerar Campo</button>
+        <div id="gerar-controles-form" class="container-controles">
+            <button class="botoes-gerar-controles2" id="gerar-controles-titulo-form">Controles de titulo e cor do fundo</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-campo-form">Controles de Campo</button>
         </div>
     `;
 }
@@ -27,10 +27,13 @@ function gerarControlesForm() {
 
 function gerarControlesTituloFundoForm() {
     containerControles.innerHTML = `
-        <div id="gerar-controles-form">
-            <button class="botoes-gerar-controles2" id="gerar-controles-titulo-form">Gerar titulo e cor do fundo</button>
-            <button class="botoes-gerar-controles2" id="gerar-controles-campo-form">Gerar Campo</button>
+        <div id="gerar-controles-form" class="container-controles">
+            <button class="botoes-gerar-controles2" id="gerar-controles-titulo-form">Controles de titulo e cor do fundo</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-campo-form">Controles de Campo</button>
         </div>
+
+
+        <h3 class="titulo-editor">Editor de formulário</h3>
 
         <form action="k.php" id="fom-titulo">
                     <fieldset>
@@ -55,17 +58,17 @@ function gerarControlesTituloFundoForm() {
 
                         <div class="campo-editor">
                             <label for="input-cor-fundo-titulo-form" class="label-style-main">Cor do fundo do formulário</label>
-                            <input type="color" name="corfundo" id="input-cor-fundo-titulo-form" class="input-style-main">
+                            <input type="color" name="corfundo" id="input-cor-fundo-titulo-form" class="input-style-main" value="#ffffff">
                         </div>
 
                         <div class="campo-editor">
                             <label for="input-cor-borda-form" class="label-style-main">Cor da borda</label>
-                            <input type="color" name="corborda" id="input-cor-borda-form" class="input-style-main" value="#000000">
+                            <input type="color" name="corborda" id="input-cor-borda-form" class="input-style-main" >
                         </div>
 
                         <div class="campo-editor">
                             <label for="input-espessura-borda-form" class="label-style-main">Espessura da borda (em px)</label>
-                            <input type="number" name="Espessura" id="input-espessura-borda-form" class="input-style-main" placeholder="0" min="0" max="10">
+                            <input type="number" name="Espessura" id="input-espessura-borda-form" class="input-style-main" placeholder="0" value="0" min="0" max="10">
                         </div>
 
                         <div class="campo-editor">
@@ -87,11 +90,12 @@ function gerarControlesTituloFundoForm() {
 
 function gerarControlesCampoForm() {
     containerControles.innerHTML = `
-        <div id="gerar-controles-form">
-            <button class="botoes-gerar-controles2" id="gerar-controles-titulo-form">Gerar titulo e cor do fundo</button>
-            <button class="botoes-gerar-controles2" id="gerar-controles-campo-form">Gerar Campo</button>
+        <div id="gerar-controles-form" class="container-controles">
+            <button class="botoes-gerar-controles2" id="gerar-controles-titulo-form">Controles titulo e cor do fundo</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-campo-form">Controles Campo</button>
         </div>
 
+        <h3 class="titulo-editor">Editor de formulário</h3>
         <form action="k.php" id="form-campo">
                     <fieldset>
                         <legend>
@@ -132,7 +136,7 @@ function gerarControlesCampoForm() {
 
                         <div class="campo-editor">
                             <label for="input-cor-titulo-label-campo" class="label-style-main">Selecione a cor do titulo do campo</label>
-                            <input type="color" name="cor" id="input-cor-titulo-label-campo" class="input-style-main" value="#FFFFFF">
+                            <input type="color" name="cor" id="input-cor-titulo-label-campo" class="input-style-main" >
                         </div>
 
                         <div class="campo-editor">
@@ -148,7 +152,7 @@ function gerarControlesCampoForm() {
 
                         <div class="campo-editor">
                             <label for="input-cor-borda-campo" class="label-style-main">Cor da borda do campo</label>
-                            <input type="color" name="corborda" id="input-cor-borda-campo" class="input-style-main" value="#cc84ff">
+                            <input type="color" name="corborda" id="input-cor-borda-campo" class="input-style-main" value="#000000">
                         </div>
 
                         <div class="campo-editor">
@@ -170,10 +174,10 @@ function gerarControlesCampoForm() {
                     </fieldset>
                 </form>
 
-                 <div>
-                    <button id="btn-salvar-form">Salvar</button> 
-                    <button id="btn-excluir-form">Excluir</button> 
-                </div> 
+                <div class="divBotoesSlvExc">
+                    <button id="btn-salvar-form" class="btn-salvar--excluir--controles">Salvar</button>
+                    <button id="btn-excluir-form" class="btn-salvar--excluir--controles">Excluir</button>
+                </div>
     `;
 
     configurarCamposFormulario();

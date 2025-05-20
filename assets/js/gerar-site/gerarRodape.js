@@ -1,7 +1,7 @@
 function configurarRodape() {
     let rodape = document.getElementById("rodape");
 
-    // Cria o rodapé se ele ainda não existir
+
     if (!rodape) {
         rodape = document.createElement("footer");
         rodape.id = "rodape";
@@ -13,7 +13,7 @@ function configurarRodape() {
         document.body.appendChild(rodape);
     }
 
-    // Referências aos controles
+    
     const inputTexto = document.getElementById("rodapeTexto");
     const inputCorTexto = document.getElementById("rodapeCorTexto");
     const inputTamanhoFonte = document.getElementById("rodapeTamanhoFonte");
@@ -30,7 +30,7 @@ function configurarRodape() {
         rodape.style.padding = (inputPadding.value || 10) + "px";
     }
 
-    // Eventos para atualizar dinamicamente
+   
     inputTexto.addEventListener("input", atualizarRodape);
     inputCorTexto.addEventListener("input", atualizarRodape);
     inputTamanhoFonte.addEventListener("input", atualizarRodape);
@@ -38,6 +38,6 @@ function configurarRodape() {
     inputPadding.addEventListener("input", atualizarRodape);
     selectAlinhamento.addEventListener("change", atualizarRodape);
 
-    // Atualiza inicialmente com os valores atuais
+    
     atualizarRodape();
 }

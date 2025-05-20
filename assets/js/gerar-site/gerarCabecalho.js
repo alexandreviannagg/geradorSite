@@ -1,10 +1,6 @@
 let containerCabecalho = document.querySelector("#cabecalho");
 
-
-
 function configurarGeraisCabecalho() {
-    // Pegando os elementos do formulário
-
     let inputPadding = document.querySelector("#espacamento-interno-cabecalho--editor");
     let inputCorFundo = document.querySelector("#cor-fundo-cabecalho--editor");
     const inputGap = document.getElementById("gap-itens-cabecalho");
@@ -14,38 +10,32 @@ function configurarGeraisCabecalho() {
 
     let alinhamentoItensCabecalho = document.getElementById("alinhamento-itens-cabecalho");
 
-    // Quando o usuário mudar o valor do espaçamento interno (padding)
     if (inputPadding) {
         inputPadding.addEventListener("input", function () {
             containerCabecalho.style.padding = inputPadding.value + "px";
         });
     }
 
-    // Quando o usuário escolher uma cor de fundo
     if (inputCorFundo) {
         inputCorFundo.addEventListener("input", function () {
             containerCabecalho.style.backgroundColor = inputCorFundo.value;
         });
     }
 
-    // Quando o usuário mudar algum campo da borda
     if (inputCorBorda && inputEspessuraBorda && inputEstiloBorda) {
         inputCorBorda.addEventListener("input", atualizarBorda);
         inputEspessuraBorda.addEventListener("input", atualizarBorda);
         inputEstiloBorda.addEventListener("change", atualizarBorda);
     }
 
-    // Função para aplicar ou remover a borda
     function atualizarBorda() {
         let cor = inputCorBorda.value;
         let largura = inputEspessuraBorda.value;
         let estilo = inputEstiloBorda.value;
 
-        // Se todos os campos estiverem preenchidos, aplica a borda
         if (cor !== "" && largura !== "" && estilo !== "" && largura > 0) {
             containerCabecalho.style.border = largura + "px " + estilo + " " + cor;
         } else {
-            // Se faltar algum valor, remove a borda
             containerCabecalho.style.border = "none";
         }
     }
@@ -56,39 +46,30 @@ function configurarGeraisCabecalho() {
 
     alinhamentoItensCabecalho.addEventListener("change", function() {
         let valor = alinhamentoItensCabecalho.value;
-    
-        // Aplica o justify-content conforme o valor selecionado
         if (valor) {
             containerCabecalho.style.justifyContent = valor;
         }
     });
-    
 }
 
 function configurarLogoCabecalho() {
-    let textSeuSite = document.querySelector("#seuSiteText");
-    textSeuSite.style.display = 'none';
-
     let inputLogo = document.querySelector("#logo-cabecalho--editor");
     let inputLargura = document.querySelector("#largula-logo-cabecalho--editor");
     let inputAltura = document.querySelector("#altura-logo-cabecalho--editor");
     let inputArredondamento = document.querySelector("#arredondamento-logo-cabecalho");
 
-    // Novos inputs para borda
     let inputCorBorda = document.querySelector("#input-cor-borda-logo-cabecalho");
     let inputEspessuraBorda = document.querySelector("#input-espessura-borda-logo-cabecalho");
     let inputEstiloBorda = document.querySelector("#input-estilo-borda-logo-cabecalho");
 
     let containerImgCabecalho = document.querySelector(".img-cabecalho");
-
     let imgLogo = containerImgCabecalho.querySelector("img.logo-cabecalho");
+
     if (!imgLogo) {
         imgLogo = document.createElement("img");
         imgLogo.classList.add("logo-cabecalho");
-
         imgLogo.style.width = "40px";
         imgLogo.style.height = "40px";
-
         containerImgCabecalho.appendChild(imgLogo);
     }
 
@@ -123,7 +104,6 @@ function configurarLogoCabecalho() {
         });
     }
 
-    // Função para atualizar a borda conforme inputs
     function atualizarBorda() {
         const espessura = parseInt(inputEspessuraBorda.value, 10);
         const cor = inputCorBorda.value;
@@ -148,15 +128,10 @@ function configurarLogoCabecalho() {
         inputEstiloBorda.addEventListener("change", atualizarBorda);
     }
 
-    // Inicializa a borda com valores atuais
     atualizarBorda();
 }
- 
-
 
 function configurarTextoCabecalho() {
-    let textSeuSite = document.querySelector("#seuSiteText");
-    textSeuSite.style.display = 'none';
     let textoCabecalho = document.querySelector("#texto-cabecalho");
 
     let inputTexto = document.querySelector("#texto-cabecalho--editor");
@@ -166,28 +141,24 @@ function configurarTextoCabecalho() {
     let inputEspessuraBorda = document.querySelector("#input-espessura-borda-texto-cabecalho");
     let selectEstiloBorda = document.querySelector("#input-estilo-borda-texto-cabecalho");
 
-    // Atualizar texto conforme input
     if (inputTexto) {
         inputTexto.addEventListener("input", function () {
             textoCabecalho.textContent = inputTexto.value;
         });
     }
 
-    // Atualizar tamanho da fonte
     if (inputFonte) {
         inputFonte.addEventListener("input", function () {
             textoCabecalho.style.fontSize = inputFonte.value + "px";
         });
     }
 
-    // Atualizar cor do texto
     if (inputCor) {
         inputCor.addEventListener("input", function () {
             textoCabecalho.style.color = inputCor.value;
         });
     }
 
-    // Atualizar cor da borda do texto
     if (inputCorBorda) {
         inputCorBorda.addEventListener("input", function () {
             textoCabecalho.style.borderColor = inputCorBorda.value;
@@ -195,7 +166,6 @@ function configurarTextoCabecalho() {
         });
     }
 
-    // Atualizar espessura da borda
     if (inputEspessuraBorda) {
         inputEspessuraBorda.addEventListener("input", function () {
             textoCabecalho.style.borderWidth = inputEspessuraBorda.value + "px";
@@ -203,14 +173,12 @@ function configurarTextoCabecalho() {
         });
     }
 
-    // Atualizar estilo da borda
     if (selectEstiloBorda) {
         selectEstiloBorda.addEventListener("change", function () {
             textoCabecalho.style.borderStyle = selectEstiloBorda.value;
         });
     }
 }
-
 
 function configurarCamposFormCabecalho() {
     const camposCriados = [];
@@ -256,7 +224,7 @@ function configurarCamposFormCabecalho() {
         const borderStyle = estiloBorda.value || "solid";
 
         const wrapper = document.createElement("div");
-        wrapper.className = "campo-gerado";
+        wrapper.className = "campo-editor";
 
         const label = document.createElement("label");
         label.textContent = labelText;
@@ -266,7 +234,7 @@ function configurarCamposFormCabecalho() {
 
         let campo;
 
-       if (tipo === "submit") {
+        if (tipo === "submit") {
             campo = document.createElement("button");
             campo.type = "submit";
             campo.textContent = labelText || "Enviar";

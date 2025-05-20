@@ -10,14 +10,12 @@ function configurarTituloFormulario() {
     const containerFormulario = document.getElementById("formulario");
     const containerTitulo = document.getElementById("titulo-formulario");
 
-    // Cria o elemento do título, se ainda não existir
     let tituloForm = containerTitulo.querySelector("h2");
     if (!tituloForm) {
         tituloForm = document.createElement("h2");
         containerTitulo.appendChild(tituloForm);
     }
 
-    // Eventos para atualizar o título
     function atualizarTitulo() {
         tituloForm.textContent = inputTitulo.value;
         tituloForm.style.fontSize = `${inputTamanhoFonte.value || 24}px`;
@@ -39,11 +37,9 @@ function configurarTituloFormulario() {
     inputEspessuraBorda.addEventListener("input", atualizarEstilosFormulario);
     inputEstiloBorda.addEventListener("change", atualizarEstilosFormulario);
 
-    // Inicialização inicial
     atualizarTitulo();
     atualizarEstilosFormulario();
 }
-
 
 function configurarCamposFormulario() {
     const camposCriados = [];
@@ -66,7 +62,6 @@ function configurarCamposFormulario() {
     let previewLabel = null;
     let previewCampo = null;
 
-    // Array dos inputs de estilo (com seus eventos)
     const inputsDeEstilo = [
         {el: tituloCampo, evento: "input"},
         {el: tamanhoFonteLabel, evento: "input"},
@@ -133,8 +128,7 @@ function configurarCamposFormulario() {
         return wrapper;
     }
 
-
-   function atualizarPreview() {
+    function atualizarPreview() {
         if (!previewWrapper) return;
 
         if (previewLabel) {
@@ -152,8 +146,6 @@ function configurarCamposFormulario() {
 
         previewCampo.style.border = `${espessuraBorda.value || 1}px ${estiloBorda.value || "solid"} ${corBorda.value || "#000"}`;
     }
-
-
 
     tipoCampo.addEventListener("change", () => {
         if (previewWrapper) {
@@ -184,8 +176,6 @@ function configurarCamposFormulario() {
         }
 
         previewCampo.classList.add("input-style-main");
-
-
         previewCampo.style.marginTop = "5px";
         previewCampo.style.display = "block";
         previewCampo.style.padding = "5px";
@@ -200,7 +190,6 @@ function configurarCamposFormulario() {
         atualizarPreview();
     });
 
-    // Aqui adicionamos os eventListeners a todos os inputs de estilo do array:
     inputsDeEstilo.forEach(({el, evento}) => {
         el.addEventListener(evento, atualizarPreview);
     });
@@ -220,14 +209,13 @@ function configurarCamposFormulario() {
         tipoCampo.value = "op";
         tituloCampo.value = "";
         tamanhoFonteLabel.value = "";
-        corTitulo.value = "#000000"; // valor padrão válido para cor
+        corTitulo.value = "#000000";
         placeholder.value = "";
         tamanhoFontePlaceholder.value = "";
-        corBorda.value = "#000000";  // valor padrão válido para cor
+        corBorda.value = "#000000";
         espessuraBorda.value = "";
         estiloBorda.value = "";
     };
-
 
     btnExcluir.onclick = function () {
         if (camposCriados.length > 0) {

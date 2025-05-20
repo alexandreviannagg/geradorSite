@@ -14,32 +14,32 @@ function aplicarEventosTituloMenu() {
     h4TituloMenu.style.display = "none";
   }
 
-  // Atualiza texto do título
+  
   inputTexto.addEventListener("input", () => {
     tituloH2.textContent = inputTexto.value;
   });
 
-  // Atualiza tamanho da fonte
+ 
   inputTamanhoFonte.addEventListener("input", () => {
     tituloH2.style.fontSize = `${inputTamanhoFonte.value}px`;
   });
 
-  // Atualiza cor da fonte
+  
   inputCorFonte.addEventListener("input", () => {
     tituloH2.style.color = inputCorFonte.value;
   });
 
-  // Atualiza alinhamento do título
+
   selectAlinhamento.addEventListener("change", () => {
     tituloH2.style.textAlign = selectAlinhamento.value;
   });
 
-  // Atualiza cor do fundo do container #menu
+ 
   inputCorFundo.addEventListener("input", () => {
     containerMenu.style.backgroundColor = inputCorFundo.value;
   });
 
-  // Inicializa com valores padrão do formulário
+ 
   tituloH2.style.fontSize = `${inputTamanhoFonte.value}px`;
   tituloH2.style.color = inputCorFonte.value;
   tituloH2.style.textAlign = selectAlinhamento.value;
@@ -51,20 +51,13 @@ const imagensSalvas = [];
 let imagemAtual = null;
 
 function aplicarEventosImagemMenu() {
-    const menuContainer = document.getElementById("menu");
     const imgMenuContainer = document.getElementById("img-menu");
-    const tituloMenu = document.getElementById("seu-menu-aq");
 
-    // Oculta o título
-    if (tituloMenu) {
-        tituloMenu.style.display = "none";
-    }
-
-    // Configura o container como flex
+    
     imgMenuContainer.style.display = "flex";
-    imgMenuContainer.style.flexWrap = "wrap"; // Permite múltiplas linhas
-    imgMenuContainer.style.gap = "10px"; // Valor padrão inicial
-    imgMenuContainer.style.justifyContent = "flex-start"; // Valor padrão
+    imgMenuContainer.style.flexWrap = "wrap"; 
+    imgMenuContainer.style.gap = "10px"; 
+    imgMenuContainer.style.justifyContent = "flex-start";
 
     const imagemMenu = document.getElementById("imagem-menu");
     const larguraImagemMenu = document.getElementById("largura-imagem-menu");
@@ -76,11 +69,10 @@ function aplicarEventosImagemMenu() {
     const btnSalvar = document.getElementById("btn-salvar-menu");
     const btnExcluir = document.getElementById("btn-excluir-menu");
 
-    // Novos elementos para alinhamento e espaçamento
     const alinhamentoImgMenu = document.getElementById("alinhamento-img-menu");
     const gapImgMenu = document.getElementById("gap-img-menu");
 
-    // Eventos novos
+ 
     alinhamentoImgMenu.addEventListener("change", () => {
         imgMenuContainer.style.justifyContent = alinhamentoImgMenu.value;
     });
@@ -186,7 +178,7 @@ function aplicarEventosTextoMenu() {
 
     const containerItensMenu = document.getElementById("itens-menu");
 
-    // Inicializa container
+   
     containerItensMenu.style.display = "flex";
     containerItensMenu.style.flexWrap = "wrap";
     containerItensMenu.style.gap = `${gapItemMenuInput.value}px`;
@@ -194,7 +186,7 @@ function aplicarEventosTextoMenu() {
 
     criarNovoTextoParaEdicao();
 
-    // Eventos de input
+   
     textoMenuInput.addEventListener("input", () => {
         if (textoAtual) {
             textoAtual.textContent = textoMenuInput.value;
@@ -221,7 +213,7 @@ function aplicarEventosTextoMenu() {
         containerItensMenu.style.justifyContent = alinhamentoItemMenuSelect.value;
     });
 
-    // Salvar texto
+    
     btnSalvar.addEventListener("click", () => {
         if (textoAtual.textContent.trim() !== "") {
             textoAtual.classList.add("item-menu");
@@ -235,7 +227,7 @@ function aplicarEventosTextoMenu() {
         }
     });
 
-    // Excluir texto
+    
     btnExcluir.addEventListener("click", () => {
         if (textoAtual) {
             textoAtual.remove();
@@ -247,7 +239,6 @@ function aplicarEventosTextoMenu() {
         }
     });
 
-    // Cria novo texto editável dentro do container #itens-menu
     function criarNovoTextoParaEdicao() {
         textoMenuInput.value = "";
         corTextoMenuInput.value = "#000000";
@@ -258,7 +249,7 @@ function aplicarEventosTextoMenu() {
         textoAtual.style.fontSize = "20px";
         textoAtual.style.color = "#000";
         textoAtual.style.display = "block";
-        textoAtual.style.cursor = "text"; // Indica que é editável
+        textoAtual.style.cursor = "text"; 
 
         containerItensMenu.appendChild(textoAtual);
     }

@@ -20,10 +20,10 @@ containerControles.addEventListener("click", function(event) {
 
 function gerarMenuControles() {
     containerControles.innerHTML = `
-        <div id="gerar-controles-menu">
-            <button class="botoes-gerar-controles2" id="gerar-controles-titulo-menu">Gerar titulo e cor do fundo</button>
-            <button class="botoes-gerar-controles2" id="gerar-controles-img-menu">Gerar imagem</button>
-            <button class="botoes-gerar-controles2" id="gerar-controles-item-menu">Gerar item</button>
+        <div id="gerar-controles-menu" class="container-controles">
+            <button class="botoes-gerar-controles2" id="gerar-controles-titulo-menu">Controles de titulo e cor do fundo</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-img-menu">Controles de imagem</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-item-menu">Controles de item</button>
         </div>
     `;
 }
@@ -31,6 +31,12 @@ function gerarMenuControles() {
 
 function gerarControlesTituloMenu() {
   containerControles.innerHTML = `
+        <div id="gerar-controles-menu" class="container-controles">
+            <button class="botoes-gerar-controles2" id="gerar-controles-titulo-menu">Controles de titulo e cor do fundo</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-img-menu">Controles de imagem</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-item-menu">Controles de item</button>
+        </div>
+
     <h3 class="titulo-editor">Editor de título do menu</h3>
     <form id="editor-titulo-menu-form">
       <fieldset>
@@ -74,6 +80,13 @@ function gerarControlesTituloMenu() {
 
 function gerarControlesImgMenu() {
     containerControles.innerHTML = `
+
+        <div id="gerar-controles-menu" class="container-controles">
+            <button class="botoes-gerar-controles2" id="gerar-controles-titulo-menu">Controles de titulo e cor do fundo</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-img-menu">Controles de imagem</button>
+            <button class="botoes-gerar-controles2" id="gerar-controles-item-menu">Controles de item</button>
+        </div>
+
     <h3 class="titulo-editor">Editor de menu</h3>
         <form id="editor-menu-form">
             <fieldset>
@@ -95,7 +108,7 @@ function gerarControlesImgMenu() {
                 </div>
 
                 <div class="campo-editor">
-                    <label for="arredondamento-img-menu" class="label-style-main">Selecione o arredondamento da logo</label>
+                    <label for="arredondamento-img-menu" class="label-style-main">Selecione o arredondamento da imagem</label>
                     <input type="number" name="arredondamento-img-menu" class="input-style-main" max="200" min="0" value="0" id="arredondamento-img-menu">
                 </div>
 
@@ -137,9 +150,9 @@ function gerarControlesImgMenu() {
         </form>
 
 
-        <div>
-            <button id="btn-salvar-menu">Salvar</button>
-            <button id="btn-excluir-menu">Excluir</button>
+        <div class="divBotoesSlvExc">
+            <button id="btn-salvar-menu" class="btn-salvar--excluir--controles">Salvar</button>
+            <button id="btn-excluir-menu" class="btn-salvar--excluir--controles">Excluir</button>
         </div>
     `;
 
@@ -149,6 +162,12 @@ function gerarControlesImgMenu() {
 
 function gerarControlesItemMenu() {
     containerControles.innerHTML = `
+            <div id="gerar-controles-menu" class="container-controles">
+                <button class="botoes-gerar-controles2" id="gerar-controles-titulo-menu">Controles de titulo e cor do fundo</button>
+                <button class="botoes-gerar-controles2" id="gerar-controles-img-menu">Controles de imagem</button>
+                <button class="botoes-gerar-controles2" id="gerar-controles-item-menu">Controles de item</button>
+            </div>
+
             <h3 class="titulo-editor">Editor de menu</h3>
                 <form action="h.php">
                     <fieldset>
@@ -186,9 +205,9 @@ function gerarControlesItemMenu() {
                     </fieldset>
                 </form>
 
-                <div>
-                    <button id="btn-salvar-menu">Salvar</button>
-                    <button id="btn-excluir-menu">Excluir</button>
+                <div class="divBotoesSlvExc">
+                    <button id="btn-salvar-menu" class="btn-salvar--excluir--controles">Salvar</button>
+                    <button id="btn-excluir-menu" class="btn-salvar--excluir--controles">Excluir</button>
                 </div>
     `;
 
