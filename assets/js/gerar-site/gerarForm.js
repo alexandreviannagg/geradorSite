@@ -120,6 +120,7 @@ function configurarCamposFormulario() {
         campo.style.border = `${borderWidth}px ${borderStyle} ${borderColor}`;
         campo.style.marginTop = "5px";
         campo.style.display = "block";
+        campo.style.width = "80%"
         campo.style.padding = "5px";
 
         wrapper.appendChild(label);
